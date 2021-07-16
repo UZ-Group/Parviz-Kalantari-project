@@ -1,0 +1,17 @@
+@font-face {
+    font-family: 'Behdad';
+    src: url('../fonts/Behdad-Regular.woff');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Mj_Ghalam';
+    src: url('../fonts/Mj_Ghalam-2.TTF');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Tunisia';
+    src: url('../fonts/Mj_Tunisia\ Lt.ttf');
+    font-style: normal;
+}
