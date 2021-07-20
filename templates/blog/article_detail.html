@@ -1,0 +1,44 @@
+{% extends 'blog/base.html' %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <section class="content">
+                <div class="content__header-box row">
+                    <div class="col-md-2">
+                        <img style="width: 130px; height: 130px;" src="{{object.image.url}}" alt="{{object.title}}">
+                    </div>
+                    <div class="article-top-header col-md-9">
+                        <h3>{{object.title}}</h3>
+                        <div class="new-post__date"><i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>{{object.jpublish}}</span></div>
+                        <div><i class="fas fa-pen"></i>نویسنده : <span>{{object.author.get_full_name}}</span></div>
+                    </div>
+                </div>
+                <div class="content__article">
+                    <!-- content will be here  -->
+                    {{object.description}}
+                </div>
+                <div class="content__btns-box">
+                    <i class="like-btn far fa-heart" data-toggle="tooltip" title="این مقاله را می پسندم"></i>
+                    <span>تعداد بازدید :<span>32</span></span>
+                </div>
+            </section>
+            <section class="comments">
+                <div class="comments__header">
+                    نظرات
+                </div>
+                <div class="comments__box">
+                    <!-- Comments App -->
+                </div>
+            </section>
+            <section class="recommended-articles-in-page">
+                <div class="recommended-articles-in-page__header">مطالب پیشنهادی</div>
+                <div class="recommended-articles-in-page__box">
+                    <a href="article.html">مطلب پیشنهادی اول</a>
+                    <a href="article.html">مطلب پیشنهادی دوم</a>
+                    <a href="article.html">مطلب پیشنهادی سوم</a>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}
