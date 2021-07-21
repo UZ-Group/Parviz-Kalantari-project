@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}گالری آثار{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="paint-post row">
+                <img src="{{object.image.url}}" alt="paint">
+            </div>
+            <div class="paint-detail">
+                <p>{{object.description}}</p>
+            </div>
+        </div>
+    </main>
+{% endblock %}

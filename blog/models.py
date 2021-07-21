@@ -1,6 +1,7 @@
 from django.db import models
 from account.models import User
 from django.utils import timezone
+from django.utils.html import format_html
 from extensions.utils import jalali_converter
 
 # my managers
@@ -41,5 +42,21 @@ class Article(models.Model):
         return jalali_converter(self.publish)
     jpublish.short_description = 'زمان انتشار'
 
+    def image_tag(self):
+        return format_html("<img width=100 height=75 style='border-radius: 10px;' src='{}'>".format(self.image.url))
+    image_tag.short_description = "عکس"
+
     objects = ArticleManager()
     
+
+class Gallery(models.Model):
+    image = models.ImageField(upload_to='images/gallery', verbose_name='نقاشی')
+    description = models.TextField(verbose_name='درباره نقاشی')
+
+    class Meta:
+        verbose_name = 'نقاشی'
+        verbose_name_plural = 'گالری نقاشی ها'
+    
+    def image_tag(self):
+        return format_html("<img width=250 height=150 style='border-radius: 10px;' src='{}'>".format(self.image.url))
+    image_tag.short_description = "عکس"

@@ -1,0 +1,41 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}گالری آثار{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="recommended-articles__header">
+                <span class="recommended-articles__text"><div>گالری آثار</div></span>
+            </div>
+            <div class="gallery">
+                <div class="gallery__paint">
+                    {% for paint in object_list %}
+                        <div class="gallery-post col-md-5">
+                            <a href="{% url 'blog:gallery_detail' paint.id %}" target="_blank">
+                                <img class="gallery__image" src="{{paint.image.url}}" alt="paint">
+                            </a>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% if is_paginated %}
+                <div class="Slider">
+                    {% if page_obj.has_previous %}
+                        <a class="Slider__link signs-link"
+                        href="{% url 'blog:gallery' page_obj.previous_page_number %}">
+                            <i class="fas fa-caret-right"></i>
+                        </a>
+                    {% endif %}
+                        <div class="Slider__counter">{{ page_obj.number }}</div>
+                    {% if page_obj.has_next %}
+                        <a class="Slider__link signs-link"
+                        href="{% url 'blog:gallery' page_obj.next_page_number %}">
+                            <i class="fas fa-caret-left"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
