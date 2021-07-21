@@ -5,19 +5,15 @@
 <main>
     <div class="container">
         <div class="row about-artist">
-            <div class="about-artist__image  col-md-2"><img src="{% static 'blog/images/port.jpg' %}"
+            <div class="about-artist__image  col-md-2"><img src="{{setting.image.url}}"
                     alt="استاد پرویز کلانتری"></div>
             <div class="about-artist__description  col-md-10">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
-                حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-                رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد.
+               {{setting.bio}}
             </div>
         </div>
         <div class="posts">
             <div class="posts__header">آخرین مطالب</div>
-            {% for article in object_list %}
+            {% for article in articles %}
                 <article class="new-post row">
                     <div class="col-md-2 new-post__image"><img src="{{article.image.url}}" alt="{{article.title}}"></div>
                     <div class="col-md-9 new-post__detail">

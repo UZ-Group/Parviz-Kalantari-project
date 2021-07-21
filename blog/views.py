@@ -1,11 +1,15 @@
 from django.views.generic import ListView, DetailView
 from .models import Article, Gallery
-from django.shortcuts import get_object_or_404
+from site_settings.models import SiteSetting
+from django.shortcuts import get_object_or_404, render
 
 # articles
-class HomeSite(ListView):
-    queryset = Article.objects.published()[:3]
-    template_name = 'blog/home_site.html'
+def home_site(request):
+    context = {
+        'articles': Article.objects.published()[:3],
+        'setting': SiteSetting.objects.first()
+    }
+    return render(request, 'blog/home_site.html', context)
 
 
 class ArticleList(ListView):

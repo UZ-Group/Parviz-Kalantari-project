@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     # my apps :
     'account.apps.AccountConfig',
     'blog.apps.BlogConfig',
+    'site_settings.apps.SiteSettingsConfig',
     'extensions',
 ]
 
