@@ -9,12 +9,11 @@ class HomeSite(ListView):
 
 
 class ArticleList(ListView):
-    queryset = Article.objects.published()[:5]
-    template_name = 'blog/article_list.html'
+    queryset = Article.objects.published()
+    paginate_by = 5
 
 
 class ArticleDetail(DetailView):
-    template_name = 'blog/article_detail.html'
     def get_object(self):
         slug = self.kwargs.get('slug')
         article = get_object_or_404(Article.objects.published(), slug=slug)

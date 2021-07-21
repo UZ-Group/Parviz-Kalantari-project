@@ -58,16 +58,23 @@
                 </article>
             {% endfor %}
         </div>
-        <div class="Slider">
-            <a class="Slider__link signs-link" href="{% block previous_page_url %}{% endblock %}">
-                <i class="fas fa-caret-right"></i>
-            </a>
-            <div class="Slider__counter">3
+        {% if is_paginated %}
+            <div class="Slider">
+                {% if page_obj.has_previous %}
+                    <a class="Slider__link signs-link"
+                    href="{% url 'blog:article_list' page_obj.previous_page_number %}">
+                        <i class="fas fa-caret-right"></i>
+                    </a>
+                {% endif %}
+                    <div class="Slider__counter">{{ page_obj.number }}</div>
+                {% if page_obj.has_next %}
+                    <a class="Slider__link signs-link"
+                    href="{% url 'blog:article_list' page_obj.next_page_number %}">
+                        <i class="fas fa-caret-left"></i>
+                    </a>
+                {% endif %}
             </div>
-            <a class="Slider__link signs-link" href="">
-                <i class="fas fa-caret-left"></i>
-            </a>
-        </div>
+        {% endif %}
     </div>
 </main>
 {% endblock %}
