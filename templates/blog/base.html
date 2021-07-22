@@ -35,7 +35,7 @@
         <nav class="nav-bar sticky-top scroll">
             <ul>
                 <li><a href="{% url 'blog:home_site' %}">خانه</a></li>
-                <li><a href="biography.html">بیوگرافی</a></li>
+                <li><a href="{% url 'setting:biography' %}">بیوگرافی</a></li>
                 <li><a href="{% url 'blog:gallery' %}">گالری آثار</a></li>
                 <li><a href="{% url 'blog:article_list' %}">آخرین مطالب</a></li>
                 <li><a href="videos.html">فیلم</a></li>
@@ -55,7 +55,7 @@
             <div class="footer-links">
                 <div class="co--md-4">
                     <a href="{% url 'blog:home_site' %}">خانه</a>
-                    <a href="biography.html">بیوگرافی</a>
+                    <a href="{% url 'setting:biography' %}">بیوگرافی</a>
                 </div>
                 <div class="co--md-4">
                     <a href="{% url 'blog:article_list' %}">آخرین مطالب</a>

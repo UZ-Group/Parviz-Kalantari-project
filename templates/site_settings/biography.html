@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}بیوگرافی{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="biography">
+                <h2>بیوگرافی</h2>
+                <div class="biography__box">
+                    <p>{{setting.bio}}</p>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

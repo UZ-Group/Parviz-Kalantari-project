@@ -6,4 +6,10 @@ def contact_us(request):
     context ={
         'setting' : SiteSetting.objects.first()
     }
-    return render(request, 'blog/contact_us.html', context)
+    return render(request, 'site_settings/contact_us.html', context)
+
+def biography(request):
+    context ={
+        'setting' : SiteSetting.objects.first()
+    }
+    return render(request, 'site_settings/biography.html', context)
