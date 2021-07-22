@@ -3,6 +3,7 @@ from account.models import User
 from django.utils import timezone
 from django.utils.html import format_html
 from extensions.utils import jalali_converter
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # my managers
 class ArticleManager(models.Manager):
@@ -22,7 +23,7 @@ class Article(models.Model):
     title = models.CharField(max_length=300, verbose_name='عنوان مقاله')
     slug = models.SlugField(max_length=300, unique=True, verbose_name='آدرس مقاله')
     image = models.ImageField(upload_to='images', verbose_name='تصویر مقاله')
-    description = models.TextField(verbose_name='متن مقاله')
+    description = RichTextUploadingField(verbose_name='متن مقاله')
     short_des = models.TextField(max_length=500 ,verbose_name='خلاصه مقاله')
     publish = models.DateTimeField(default=timezone.now, verbose_name='زمان انتشار')
     created = models.DateTimeField(auto_now_add=True)

@@ -1,11 +1,12 @@
 from django.db import models
 from django.utils.html import format_html
+from ckeditor_uploader.fields import RichTextUploadingField
 
 # Create your models here.
 class SiteSetting(models.Model):
-    bio = models.TextField(verbose_name='بیوگرافی هنرمند')
+    bio = RichTextUploadingField(verbose_name='بیوگرافی هنرمند')
     image = models.ImageField(upload_to='images/site', verbose_name='عکس هنرمند(بیو)')
-    contact_us =  models.TextField(verbose_name='ارتباط با ما')
+    contact_us =  RichTextUploadingField(verbose_name='ارتباط با ما')
 
     class Meta:
         verbose_name = 'تنظیمات'
