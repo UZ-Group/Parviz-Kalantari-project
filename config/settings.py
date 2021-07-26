@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+    'widget_tweaks',
 
     # my apps :
     'account.apps.AccountConfig',
@@ -58,6 +59,9 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'config.urls'
+
+LOGIN_REDIRECT_URL = 'account:profile'
+LOGIN_URL = "login"
 
 TEMPLATES = [
     {
