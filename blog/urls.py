@@ -7,7 +7,6 @@ urlpatterns = [
     path('articles/', ArticleList.as_view(), name='article_list'),
     path('articles/page/<int:page>', ArticleList.as_view(), name='article_list'),
     path('article/<slug:slug>', ArticleDetail.as_view(), name='article_detail'),
-    
     path('gallery/', GalleryList.as_view(), name='gallery'),
     path('gallery/page/<int:page>', GalleryList.as_view(), name='gallery'),
     path('gallery/<int:id>', GalleryDetail.as_view(), name='gallery_detail'),

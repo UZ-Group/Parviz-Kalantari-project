@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'widget_tweaks',
+    'crispy_forms',
 
     # my apps :
     'account.apps.AccountConfig',
@@ -145,6 +146,8 @@ CKEDITOR_CONFIGS = {
         'toolbar': 'Advanced',
     },
 }
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
