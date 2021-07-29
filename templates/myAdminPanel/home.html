@@ -24,7 +24,13 @@
                     <tbody>
                     {% for article in object_list %}
                          <tr>
-                            <td>{{article.title}}</td>
+                            <td>
+                                {% if article.status in 'bd'|make_list or user.is_superuser %}
+                                    <a href="{% url 'account:article-update' article.pk %}">{{article.title}}</a>
+                                {% else %}
+                                    {{article.title}}
+                                {% endif %}
+                            </td>
                             <td><img src="{{article.image.url}}" alt="{{article.title}}" width="130" height="130" style='border-radius: 10px'></td>
                             <td>{{article.author.get_full_name}}</td>
                             <td>{{article.short_des|striptags}}</td>
@@ -50,6 +56,11 @@
                                     {% endif %}
                                     <a target="_blank" class="badge badge-secondary" 
                                     href=""> پیش‌نمایش   
+                                    </a>
+                                {% endif %}
+                                {% if user.is_superuser %}
+                                    <a class="badge text-danger" 
+                                    href="{% url 'account:article-delete' article.pk %}"> حذف
                                     </a>
                                 {% endif %}
                             </td>
