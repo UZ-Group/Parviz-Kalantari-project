@@ -63,6 +63,7 @@ ROOT_URLCONF = 'config.urls'
 
 LOGIN_REDIRECT_URL = 'account:profile'
 LOGIN_URL = "login"
+LOGOUT_REDIRECT_URL = 'login'
 
 TEMPLATES = [
     {

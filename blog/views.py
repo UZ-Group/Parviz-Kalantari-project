@@ -2,7 +2,7 @@ from django.views.generic import ListView, DetailView
 from .models import Article, Gallery
 from site_settings.models import SiteSetting
 from django.shortcuts import get_object_or_404, render
-
+from account.mixins import AuthorAccessMixin
 # articles
 def home_site(request):
     context = {
@@ -23,6 +23,12 @@ class ArticleDetail(DetailView):
         article = get_object_or_404(Article.objects.published(), slug=slug)
         return article
 
+
+class ArticlePreview(AuthorAccessMixin, DetailView):
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        article = get_object_or_404(Article, pk=pk)
+        return article
 
 # gallery
 class GalleryList(ListView):
