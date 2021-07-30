@@ -30,7 +30,7 @@
     <main>
         <div class="container main-box">
             {% if form.non_field_errors %}
-                <div class="error-message">
+                <div class="error-message-ver2">
                     {% for error in form.non_field_errors %}
                         <span>{{error}}</span>
                     {% endfor %}
@@ -58,7 +58,7 @@
                                     <i class="fas fa-user"></i>
                                     {{ form.username|attr:"placeholder:نام کاربری"}}
                                     {% if form.username.errors %}
-                                        <div class="error-message">
+                                        <div class="error-message-ver2">
                                             {% for error in form.username.errors %}
                                                 <span>{{error}}</span>
                                             {% endfor %}
@@ -69,7 +69,7 @@
                                     <i class="fas fa-asterisk"></i>
                                     {{ form.password|attr:"placeholder:رمز عبور"}}
                                     {% if form.password.errors %}
-                                        <div class="error-message">
+                                        <div class="error-message-ver2">
                                             {% for error in form.password.errors %}
                                                 <span>{{error}}</span>
                                             {% endfor %}

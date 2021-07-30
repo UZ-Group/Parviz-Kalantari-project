@@ -149,3 +149,9 @@ input:read-write {
     text-align: center;
     color: var(--main-color);
 }
+.error-message-ver2 {
+    padding: 6%;
+    padding-bottom: 0%;
+    text-align: center;
+    color: var(--main-color);
+}
