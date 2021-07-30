@@ -36,7 +36,7 @@
                 {% if user.is_superuser or user.is_author %}
                     <li class="nav-item has-treeview menu-open">
                         <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-th"></i>
+                            <i class="nav-icon fa fa-bars"></i>
                             <p>
                                 مقالات
                                 <i class="right fas fa-angle-left"></i>
@@ -52,6 +52,9 @@
                         </ul>
                     </li>
                 {% endif %}
+                <li class="nav-item">
+                    {% link request 'profile' ' پروفایل' 'fa fa-user-circle' %}
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

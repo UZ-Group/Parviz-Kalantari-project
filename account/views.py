@@ -2,21 +2,30 @@ from django.db import models
 from django.shortcuts import render, HttpResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
+from .models import User
+from .forms import ProfileForm
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from blog.models import Article
-from .mixins import FieldsMixin, FormValidMixin, AuthorAccessMixin , SuperUserAccessMixin
+from .mixins import (
+    FieldsMixin,
+    FormValidMixin,
+    AuthorAccessMixin ,
+    AuthorsAccessMixin,
+    SuperUserAccessMixin,
+)
 
 # Create your views here.
 class Login(LoginView):
-    pass
+    def get_success_url(self):
+        user = self.request.user
+        if user.is_superuser or user.is_author:
+            return reverse_lazy('account:home')
+        else:
+            return reverse_lazy('account:profile')
 
 
-def profile(request):
-    return HttpResponse("this is profile {}".format(request.user.username))
-
-
-class AdminHome(LoginRequiredMixin, ListView):
+class AdminHome(AuthorsAccessMixin, ListView):
     template_name = 'myAdminPanel/home.html'
     
     def get_queryset(self):
@@ -26,7 +35,7 @@ class AdminHome(LoginRequiredMixin, ListView):
             return Article.objects.filter(author=self.request.user)
 
 
-class ArticleCreate(LoginRequiredMixin, FieldsMixin, FormValidMixin, CreateView):
+class ArticleCreate(AuthorsAccessMixin, FieldsMixin, FormValidMixin, CreateView):
     model = Article
     template_name = 'myAdminPanel/article-create-update.html'
 
@@ -40,3 +49,20 @@ class ArticleDelete(SuperUserAccessMixin, DeleteView):
     model = Article
     success_url = reverse_lazy('account:home')
     template_name = template_name = 'myAdminPanel/article_confirm_delete.html'
+
+
+class Profile(LoginRequiredMixin, UpdateView):
+    model = User
+    template_name = 'myAdminPanel/profile.html'
+    form_class = ProfileForm
+    success_url = reverse_lazy('account:profile')
+
+    def get_object(self):
+        return User.objects.get(pk=self.request.user.pk)
+    
+    def get_form_kwargs(self):
+        kwargs = super(Profile, self).get_form_kwargs()
+        kwargs.update({
+            'user': self.request.user
+        })
+        return kwargs
