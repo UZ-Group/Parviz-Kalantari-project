@@ -22,7 +22,7 @@ class Login(LoginView):
         if user.is_superuser or user.is_author:
             return reverse_lazy('account:home')
         else:
-            return reverse_lazy('account:profile')
+            return reverse_lazy('account:user-panel')
 
 
 class AdminHome(AuthorsAccessMixin, ListView):
@@ -66,3 +66,13 @@ class Profile(LoginRequiredMixin, UpdateView):
             'user': self.request.user
         })
         return kwargs
+
+
+class UserPanel(LoginRequiredMixin, UpdateView):
+    model = User
+    template_name = 'registration/user_panel.html'
+    fields = ['username', 'email']
+    success_url = reverse_lazy('account:user-panel')
+
+    def get_object(self):
+        return User.objects.get(pk=self.request.user.pk)

@@ -1,0 +1,40 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'blog/css/sign.css' %}">
+{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="user-panel">
+                <div class="user-panel-icon"><i class="fas fa-address-card"></i></div>
+                <div class="user-panel__box">
+                    <form class="user__form"  method="POST">{% csrf_token %}
+                        <div class="sign-in__fill">
+                            <i class="fas fa-user"></i>
+                            {{form.username|attr:"placeholder:نام کاربری"}}
+                        </div>
+                        <div class="sign-in__fill">
+                            <i class="fas fa-at"></i>
+                            {{form.email|attr:"placeholder:ایمیل "}}
+                        </div>
+                        <div class="sign-in__toggle">
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                            <span>مایل به دریافت مقاله ها به صورت ایمیل هستم</span>
+                        </div>
+                        <div class="user-panel__btn"><button type="submit">ذخیره</button></div>
+                        <div class="user-panel__link">
+                            <a href="change-password.html">تغییر رمز عبور</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

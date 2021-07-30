@@ -4,7 +4,8 @@ from .views import (
     ArticleCreate,
     ArticleUpdate,
     ArticleDelete,
-    Profile
+    Profile,
+    UserPanel
 )
 
 app_name = "account"
@@ -14,4 +15,5 @@ urlpatterns = [
     path('article/update/<int:pk>', ArticleUpdate.as_view(), name='article-update'),
     path('article/delete/<int:pk>', ArticleDelete.as_view(), name='article-delete'),
     path('profile/', Profile.as_view(), name='profile'),
+    path('user-panel/', UserPanel.as_view(), name='user-panel'),
 ]
