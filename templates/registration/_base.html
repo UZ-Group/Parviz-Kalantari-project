@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
     <link rel="stylesheet" href="{% static 'blog/css/main-style.css' %}">
     <link rel="stylesheet" href="{% static 'blog/css/sign.css' %}">
+    {% block head %}{% endblock %}
 </head>
 <body>
     {% block main %}
@@ -33,4 +34,5 @@
     <script src="{% static 'blog/js/jquery-3.5.1.slim.min.js' %}"></script>
     <script src="{% static 'blog/js/bootstrap.bundle.js' %}"></script>
     <script src="{% static 'blog/js/script.js' %}"></script>
+    {% block foot %}{% endblock %}
 </html>

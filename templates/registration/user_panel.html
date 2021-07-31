@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="{% static 'blog/css/sign.css' %}">
 {% endblock %}
 
+{% block title %} اطلاعات کابری {% endblock %}
+
 {% block main %}
     <main>
         <div class="container">
@@ -13,6 +15,7 @@
                 <div class="error-message-ver2">
                     {% for error in form.non_field.errors %}
                         <span>{{error}}</span>
+                        <button id="error__btn">متوجه شدم</button>
                     {% endfor %}
                 </div>
             {% endif %}
@@ -27,6 +30,7 @@
                                 <div class="error-message-ver2">
                                     {% for error in form.username.errors %}
                                         <span>{{error}}</span>
+                                        <button id="error__btn">متوجه شدم</button>
                                     {% endfor %}
                                 </div>
                             {% endif %}
@@ -38,6 +42,7 @@
                                 <div class="error-message-ver2">
                                     {% for error in form.email.errors %}
                                         <span>{{error}}</span>
+                                        <button id="error__btn">متوجه شدم</button>
                                     {% endfor %}
                                 </div>
                             {% endif %}
@@ -61,4 +66,8 @@
             </div>
         </div>
     </main>
+{% endblock %}
+
+{% block foot %}
+    <script src="{% static 'blog/js/errorMessage.js' %}"></script>
 {% endblock %}

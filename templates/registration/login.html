@@ -1,4 +1,5 @@
-{% extends 'registration/base.html' %}
+{% extends 'registration/_base.html' %}
+{% load static %}
 {% load widget_tweaks %}
 
 
@@ -38,6 +39,7 @@
                                         <div class="error-message-ver2">
                                             {% for error in form.username.errors %}
                                                 <span>{{error}}</span>
+                                                <button id="error__btn">متوجه شدم</button>
                                             {% endfor %}
                                         </div>
                                     {% endif %}
@@ -49,6 +51,7 @@
                                         <div class="error-message-ver2">
                                             {% for error in form.password.errors %}
                                                 <span>{{error}}</span>
+                                                <button id="error__btn">متوجه شدم</button>
                                             {% endfor %}
                                         </div>
                                     {% endif %}
@@ -103,4 +106,9 @@
         </div>
         </div>
     </main>
+{% endblock %}
+
+
+{% block foot %}
+    <script src="{% static 'blog/js/errorMessage.js' %}"></script>
 {% endblock %}
