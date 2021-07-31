@@ -665,7 +665,7 @@ footer {
 }
   /* ------------------ User Panel --------------------- */
 .user-panel {
-    min-height: 400px;
+    min-height: 450px;
 }
 .user-panel-icon {
     text-align: center;
@@ -779,11 +779,15 @@ footer {
     text-align: center;
 }
 .user-panel__log-out {
-    margin: 35px auto;
+    margin: 45px 0px;
     text-align: center;
+
+
 }
-.user-panel__log-out > button {
-    width: 50%;
-    margin: auto;
+.user-panel__log-out > a {
+    padding: 1%;
+    border: 1px solid var(--main-color);
+    color: var(--whi-color);
+    background-color: var(--sec-color);
     border-radius: 20px;
 }
