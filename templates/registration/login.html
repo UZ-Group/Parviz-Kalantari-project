@@ -1,32 +1,8 @@
-{% load static %}
+{% extends 'registration/base.html' %}
 {% load widget_tweaks %}
 
-<!DOCTYPE html>
-<html dir="rtl" lang="fa">
-    <!-- By UZ Group -->
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- meta tags -->
-    <meta name="description" content="وبسایت مجموعه آثار استاد پرویز کلانتری">
-    <meta name="keywords" content="نقاشی ، پرویز کلانتری ، هنر">
-    <meta name="author" content="UZ Group">
-    <!-- og -->
-    <meta property="og:title" content="زنده یاد پرویز کلانتری"/>
-    <meta property="og:url" content="parvizkalantari.ir"/>
-    <meta property="og:description" content="وبسایت مجموعه آثار استاد پرویز کلانتری"/>
-    <meta property="og:image" content="images/icon.png"/>
-    <meta property="og:type" content="Art Gallery"/>
-    <title>استاد پرویز کلانتری</title>
-    <!-- HeaderReferences -->
-    <link rel="shortcut icon" type="image/png" href="{% static 'blog/images/icon.png' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
-    <link rel="stylesheet" href="{% static 'blog/css/main-style.css' %}">
-    <link rel="stylesheet" href="{% static 'blog/css/sign.css' %}">
-</head>
-<body>
+
+{% block main %}
     <main>
         <div class="container main-box">
             {% if form.non_field_errors %}
@@ -40,7 +16,7 @@
             <div class="sign-page-icon"><i class="fas fa-door-open"></i></div>
             <div class="sign-container">
                 <div class="sign-box">
-                 <!-- Nav tabs -->
+                <!-- Nav tabs -->
                 <ul class="nav nav-tabs navs-pan" role="tablist">
                     <li class="nav-item">
                         <a class="nav-link nav-link-edi active" data-toggle="tab" href="#sign-in">ورود</a>
@@ -126,9 +102,4 @@
         </div>
         </div>
     </main>
-</body>
-    <!-- FooterReferences -->
-    <script src="{% static 'blog/js/jquery-3.5.1.slim.min.js' %}"></script>
-    <script src="{% static 'blog/js/bootstrap.bundle.js' %}"></script>
-    <script src="{% static 'blog/js/script.js' %}"></script>
-</html>
+{% endblock %}

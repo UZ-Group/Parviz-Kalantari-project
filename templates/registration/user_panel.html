@@ -9,6 +9,13 @@
 {% block main %}
     <main>
         <div class="container">
+            {% if form.non_field.errors %}
+                <div class="error-message-ver2">
+                    {% for error in form.non_field.errors %}
+                        <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+            {% endif %}
             <div class="user-panel">
                 <div class="user-panel-icon"><i class="fas fa-address-card"></i></div>
                 <div class="user-panel__box">
@@ -16,10 +23,24 @@
                         <div class="sign-in__fill">
                             <i class="fas fa-user"></i>
                             {{form.username|attr:"placeholder:نام کاربری"}}
+                            {% if form.username.errors %}
+                                <div class="error-message-ver2">
+                                    {% for error in form.username.errors %}
+                                        <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="sign-in__fill">
                             <i class="fas fa-at"></i>
                             {{form.email|attr:"placeholder:ایمیل "}}
+                            {% if form.email.errors %}
+                                <div class="error-message-ver2">
+                                    {% for error in form.email.errors %}
+                                        <span>{{error}}</span>
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
                         </div>
                         <div class="sign-in__toggle">
                             <label class="switch">
@@ -31,7 +52,7 @@
                         <div class="user-panel__btn"><button type="submit">ذخیره</button></div>
                     </form>
                     <div class="user-panel__link">
-                        <a href="change-password.html">تغییر رمز عبور</a>
+                        <a href="{% url 'password_change' %}">تغییر رمز عبور</a>
                     </div>
                     <div class="user-panel__log-out">
                         <a class="" href="{% url 'logout' %}">خروج از حساب کاربری</a>

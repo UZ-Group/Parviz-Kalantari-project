@@ -1,5 +1,12 @@
 from django.urls import path
-from .views import home_site, ArticleList, ArticleDetail, GalleryList, GalleryDetail, ArticlePreview
+from .views import (
+    home_site,
+    ArticleList,
+    ArticleDetail,
+    GalleryList,
+    GalleryDetail,
+    ArticlePreview,
+)
 
 app_name = 'blog'
 urlpatterns = [
