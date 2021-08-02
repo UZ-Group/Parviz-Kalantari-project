@@ -59,26 +59,7 @@
                                 <button type="submit">ورود به سایت</button>
                             </form>
                             <div class="sign-in__forget">
-                                <p class="forget-text" data-toggle="modal" data-target="#myModal">رمز عبور خور را فراموش کرده اید؟</p>
-                                <!-- The Modal -->
-                                <div class="modal" id="myModal">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <!-- Modal Header -->
-                                            <div class="modal-header">
-                                                <i class="fas fa-question-circle"></i>
-                                            </div>
-                                            <!-- Modal body -->
-                                            <div class="modal-body">
-                                                <p>پس از وارد کردن ایمیل خود و انتخاب گزینه ی ارسال لینک حاوی صفحه ی تغییر رمز عبور برای شما ارسال می شود.</p>
-                                                <form action="">
-                                                    <input type="email" placeholder="ایمیل خود را وارد کنید">
-                                                    <button type="submit">ارسال</button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <a class="forget-text" href="{% url 'password_reset' %}">رمز عبور خور را فراموش کرده اید؟</a>
                             </div>
                         </div>
                     </div>
