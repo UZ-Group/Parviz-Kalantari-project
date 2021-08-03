@@ -14,6 +14,6 @@ UserAdmin.fieldsets[2][1]['fields'] = (
                                         'user_permissions'
                                         )
 
-UserAdmin.list_display += ('is_author',)
+UserAdmin.list_display += ('is_author','is_active')
 
 admin.site.register(User, UserAdmin)
