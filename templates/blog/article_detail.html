@@ -1,5 +1,6 @@
 {% extends 'blog/base.html' %}
 {% load static %}
+{% load comment_tags %}
 
 {% block title %}مقاله | {{object.title}}{% endblock %}
 
@@ -20,7 +21,7 @@
                 </div>
                 <div class="content__article">
                     <!-- content will be here  -->
-                    {{object.description}}
+                    {{object.description|safe}}
                 </div>
                 <div class="content__btns-box">
                     <i class="like-btn far fa-heart" data-toggle="tooltip" title="این مقاله را می پسندم"></i>
@@ -30,6 +31,8 @@
             <section class="comments">
                 <div class="comments__header">
                     نظرات
+                    {% render_comments object request %}
+                    {% include_bootstrap %} 
                 </div>
                 <div class="comments__box">
                     <!-- Comments App -->

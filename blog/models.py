@@ -7,6 +7,8 @@ from .utils import unique_slug_generator
 from django.db.models.signals import pre_save
 from extensions.utils import jalali_converter
 from ckeditor_uploader.fields import RichTextUploadingField
+from django.contrib.contenttypes.fields import GenericRelation
+from comment.models import Comment
 
 # my managers
 class ArticleManager(models.Manager):
@@ -32,6 +34,7 @@ class Article(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت')
+    comments = GenericRelation(Comment)
 
     class Meta:
         verbose_name = 'مقاله'
