@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'ckeditor_uploader',
     'widget_tweaks',
     'crispy_forms',
+    'django_gravatar',
 
     # my apps :
     'account.apps.AccountConfig',
