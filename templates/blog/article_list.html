@@ -6,43 +6,28 @@
 <main>
     <div class="container">
         <div class="recommended-articles__header">
-            <span class="recommended-articles__text"><div>مقالات برتر</div></span>
+            <span class="recommended-articles__text"><div>مقالات پربازدید</div></span>
         </div>
         <div class="recommended-articles row">
-            <div class="recommend-post col-md-5">
-                <a href="article.html">
-                    <img class="recommend-post__image" src="https://picsum.photos/500/500.jpg" alt="">
-                    <h3 class="new-post__header">عنوان مقاله</h3>
-                </a>
-                <p class="new-post__summery">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                </p>
-                <div class="recommend-post__detail-box">
-                    <div class="new-post__date">
-                        <i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>1400/4/23</span>
+            {% for art in article %}
+                <div class="recommend-post col-md-5">
+                    <a href="{% url 'blog:article_detail' art.slug %}">
+                        <img class="recommend-post__image" src="{{art.image.url}}" alt="{{art.title}}">
+                        <h3 class="new-post__header">{{art.title}}</h3>
+                    </a>
+                    <p class="new-post__summery">
+                        {{art.short_des|striptags}}
+                    </p>
+                    <div class="recommend-post__detail-box">
+                        <div class="new-post__date">
+                            <i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>{{art.jpublish}}</span>
+                        </div>
+                        <span>
+                            <a href="{% url 'blog:article_detail' art.slug %}" data-toggle="tooltip" title="مشاهده ی مقاله"><i class="fas fa-scroll"></i></a>
+                        </span>
                     </div>
-                    <span>
-                        <a href="article.html" data-toggle="tooltip" title="مشاهده ی مقاله"><i class="fas fa-scroll"></i></a>
-                    </span>
                 </div>
-            </div>
-            <div class="recommend-post col-md-5">
-                <a href="article.html">
-                    <img class="recommend-post__image" src="https://picsum.photos/500/500.jpg" alt="">
-                    <h3 class="new-post__header">عنوان مقاله</h3>
-                </a>
-                <p class="new-post__summery">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
-                </p>
-                <div class="recommend-post__detail-box">
-                    <div class="new-post__date">
-                        <i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>1400/4/23</span>
-                    </div>
-                    <span>
-                        <a href="article.html" data-toggle="tooltip" title="مشاهده ی مقاله"><i class="fas fa-scroll"></i></a>
-                    </span>
-                </div>
-            </div>
+            {% endfor %}
         </div>
         <div class="articles-box">
             <div class="articles-box__header">
@@ -54,7 +39,7 @@
                     <div class="col-md-9 new-post__detail">
                         <div class="new-post__header"><a href="{% url 'blog:article_detail' article.slug %}">{{article.title}}</a></div>
                         <div class="new-post__date"><i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>{{article.jpublish}}</span></div>
-                        <div class="new-post__summery">{{article.short_des}}</div>
+                        <div class="new-post__summery">{{article.short_des|striptags}}</div>
                     </div>
                     <div class="col-md-1 new-post__page"><a href="{% url 'blog:article_detail' article.slug %}" data-toggle="tooltip" title="مشاهده ی مقاله"><i class="fas fa-scroll"></i></a></div>
                 </article>

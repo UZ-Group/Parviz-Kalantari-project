@@ -16,6 +16,10 @@ class ArticleList(ListView):
     queryset = Article.objects.published()
     paginate_by = 5
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['article'] = Article.objects.published().order_by("-hits")[:2]
+        return context
 
 class ArticleDetail(DetailView):
     def get_object(self):

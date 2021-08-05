@@ -21,7 +21,7 @@
                         <div class="new-post__date"><i class="far fa-calendar-alt"></i>تاریخ انتشار :
                             <span>{{article.jpublish}}</span>
                         </div>
-                        <div class="new-post__summery">{{article.short_des}}</div>
+                        <div class="new-post__summery">{{article.short_des|striptags}}</div>
                     </div>
                     <div class="col-md-1 new-post__page"><a href="{% url 'blog:article_detail' article.slug %}" data-toggle="tooltip"
                             title="مشاهده ی مقاله"><i class="fas fa-scroll"></i></a></div>
