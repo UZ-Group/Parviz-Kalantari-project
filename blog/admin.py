@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Gallery
+from .models import Article, Gallery, IPAddress
 
 # Register your models here.
 def make_published(modeladmin, request, queryset):
@@ -53,3 +53,4 @@ class GalleryAdmin(admin.ModelAdmin):
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(IPAddress)
