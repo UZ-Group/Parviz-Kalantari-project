@@ -6,6 +6,7 @@ from .views import (
     GalleryList,
     GalleryDetail,
     ArticlePreview,
+    like
 )
 
 app_name = 'blog'
@@ -14,6 +15,7 @@ urlpatterns = [
     path('articles/', ArticleList.as_view(), name='article_list'),
     path('articles/page/<int:page>', ArticleList.as_view(), name='article_list'),
     path('article/<slug:slug>', ArticleDetail.as_view(), name='article_detail'),
+    path('article/<int:pk>/like', like, name='like'),
     path('preview/<int:pk>', ArticlePreview.as_view(), name='preview'),
     path('gallery/', GalleryList.as_view(), name='gallery'),
     path('gallery/page/<int:page>', GalleryList.as_view(), name='gallery'),

@@ -40,6 +40,7 @@ class Article(models.Model):
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت')
     comments = GenericRelation(Comment)
     hits = models.ManyToManyField(IPAddress, blank=True, related_name='hits', verbose_name='بازدیدها')
+    likes = models.ManyToManyField(User, blank=True, related_name='likes', verbose_name='پسندیدن')
 
     class Meta:
         verbose_name = 'مقاله'

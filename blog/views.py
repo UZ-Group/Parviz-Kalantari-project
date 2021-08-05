@@ -1,8 +1,10 @@
+from django.http.response import Http404
 from django.views.generic import ListView, DetailView
 from .models import Article, Gallery
 from site_settings.models import SiteSetting
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from account.mixins import AuthorAccessMixin
+
 # articles
 def home_site(request):
     context = {
@@ -31,6 +33,18 @@ class ArticleDetail(DetailView):
             article.hits.add(ip_address)
 
         return article
+
+def like(request, pk):
+    user = request.user
+    article = get_object_or_404(Article, pk=pk)
+    if user.is_authenticated:
+        if user in article.likes.all():
+            article.likes.remove(user)
+        else:
+            article.likes.add(user)
+        return redirect('blog:article_detail', article.slug)
+    else:
+        raise Http404('شما دسترسی به این صفحه ندارید!')
 
 
 class ArticlePreview(AuthorAccessMixin, DetailView):

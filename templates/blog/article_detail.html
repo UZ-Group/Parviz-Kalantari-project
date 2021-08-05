@@ -23,10 +23,18 @@
                     <!-- content will be here  -->
                     {{object.description|safe}}
                 </div>
-                <div class="content__btns-box">
-                    <i class="like-btn far fa-heart" data-toggle="tooltip" title="این مقاله را می پسندم"></i>
-                    <span>تعداد بازدید :<span>{{object.hits.count}}</span></span>
-                </div>
+                    <div class="content__btns-box">
+                        {% if user.is_authenticated %}
+                            {% if user in object.likes.all %}
+                                <a class="like-btn fas fa-heart" data-toggle="tooltip" title="این مقاله را نمی پسندم" href="{% url 'blog:like' object.pk %}"><span>{{object.likes.count}}</span></a>
+                            {% else %}   
+                                <a class="like-btn far fa-heart" data-toggle="tooltip" title="این مقاله را می پسندم" href="{% url 'blog:like' object.pk %}"><span>{{object.likes.count}}</span></a>
+                            {% endif %}
+                        {% else %}
+                            <i class="like-btn far fa-heart" data-toggle="tooltip" title="برای لایک کردن ورود کنید"><span>{{object.likes.count}}</span></i>
+                        {% endif %}
+                        <span>تعداد بازدید :<span>{{object.hits.count}}</span></span>
+                    </div>
             </section>
             <section class="comments">
                 <div class="comments__header">
