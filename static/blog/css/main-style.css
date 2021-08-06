@@ -18,6 +18,9 @@
     list-style-type: none;
     transition: 0.3s;
 }
+*:hover {
+    text-decoration: none;
+}
 a {
     color: var(--main-color);
 }
@@ -310,7 +313,10 @@ footer {
 .fa-github {
     margin-left: 5px;
 }
-
+.fa-user-circle {
+    margin-left: 5px !important;
+    margin-bottom: 3px;
+}
 
 /* ------------------Articles page --------------------- */
 .articles-box__header, .recommended-articles__header {
@@ -424,55 +430,7 @@ footer {
     font-size: 28px;
   }
   /* ------------------Article page --------------------- */
-@media only screen and (max-width: 1199px) {
-    .content__header-box {
-        padding-right: 48px;
-    }
-    .article-top-header {
-        padding-right: 15px;
-    }
-    /* .content__image { */
-        /* padding-left: 50px;
-        padding-right: 50px;
-    } */
-}
 
-@media only screen and (max-width: 992px) {
-
-    .article-top-header {
-        padding-right: 45px;
-    }
-}
-@media only screen and (max-width: 767px) {
-    .content__header-box {
-        text-align: center;
-        padding-right: 0%;
-    }
-    .article-top-header {
-        text-align: center !important;
-        margin-top: 35px;
-        padding-right: 15px;
-    }
-    .content__image {
-        width: 100% !important;
-        padding-left: 50px;
-        padding-right: 50px;
-        border-radius: 10px !important;
-    }
-    .new-post__image,
-    .new-post {
-        padding: 0;
-    }
-    .new-post__image img {
-        border-radius: 0px;
-        border-top-left-radius: 14px;
-        border-top-right-radius: 14px;
-    }
-    .new-post__detail,
-    .new-post__page {
-        padding: 3%;
-    }
-}
 .content {
       margin-top: 50px;
       margin-bottom: 35px;
@@ -536,13 +494,22 @@ footer {
     color: var(--main-color);
     margin-top: 30px;
 }
-.content__btns-box span span {
+.content__btns-box > a > span {
     font-family: Tunisia;
-    color: var(--main-color);
+    font-size: 1.1rem;
+    margin-left: 5px;
 }
 .like-btn ~ span {
     font-size: 17px;
     margin-right: 10px;
+}
+.viewCounter{
+    font-family: Behdad;
+}
+.viewCounter span {
+    font-family: Tunisia;
+    color: var(--main-color);
+    font-size: 1.3rem;
 }
 .comments__header,
 .recommended-articles-in-page__header {
@@ -559,6 +526,9 @@ footer {
     margin-bottom: 40px;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--sec-color);
+    font-size: 1rem;
+    font-family: Behdad;
+    text-align: right;
 }
 .recommended-articles-in-page {
     margin-bottom: 40px;
@@ -839,4 +809,60 @@ footer {
     color: var(--whi-color);
     background-color: var(--sec-color);
     border-radius: 20px;
+}
+
+/* @medai  */
+
+
+@media only screen and (max-width: 1199px) {
+    .content__header-box {
+        padding-right: 48px;
+    }
+    .article-top-header {
+        padding-right: 15px;
+    }
+    /* .content__image { */
+        /* padding-left: 50px;
+        padding-right: 50px;
+    } */
+}
+
+@media only screen and (max-width: 992px) {
+
+    .article-top-header {
+        padding-right: 45px !important;
+    }
+}
+@media only screen and (max-width: 767px) {
+    .content__header-box {
+        text-align: center;
+        padding-right: 0%;
+    }
+    .article-top-header {
+        text-align: center !important;
+        margin-top: 35px;
+        padding-right: 15px;
+    }
+    .content__header-box.row > div.col-md-2 {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+    .content__image {
+        width: 100% !important;
+        height: 30vh !important;
+        border-radius: 10px !important;
+    }
+    .new-post__image,
+    .new-post {
+        padding: 0;
+    }
+    .new-post__image img {
+        border-radius: 0px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+    }
+    .new-post__detail,
+    .new-post__page {
+        padding: 3%;
+    }
 }

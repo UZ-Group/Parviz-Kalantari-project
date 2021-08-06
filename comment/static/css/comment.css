@@ -1,3 +1,13 @@
+@font-face {
+    font-family: Behdad;
+    src: url('../fonts/Behdad-Regular.ttf');
+}
+* {
+    text-decoration: none;
+}
+*:hover {
+    text-decoration: none;
+}
 #comments :target {
     border: 1px solid #2188ff;
     border-radius: 6px;
@@ -15,7 +25,10 @@
 }
 #comments .bb {
     padding-bottom: 2px;
-    border-bottom: 3px solid #00bc8c;
+    border-bottom: 3px solid #6B5041;
+}
+.js-comment.comment.mb-5 > div > p > a > em {
+    color: #6B5041;
 }
 #comments .text-wrap {
     word-wrap: break-word;
@@ -37,7 +50,7 @@
     resize: none;
 }
 #comments textarea:focus, #comments textarea:hover {
-    border: 1px solid #00bc8c;
+    border: 1px solid #A16A38;
     outline: none;
 }
 .form-control:focus::placeholder,
@@ -84,7 +97,7 @@ input#search-input:focus::placeholder {
 .flag-rejected,
 .flag-resolved,
 #comments .user-has-followed {
-    stroke: #00bc8c;
+    stroke: #A16A38;
 }
 .comment-modal {
     position: fixed;
@@ -206,11 +219,11 @@ input#search-input:focus::placeholder {
 }
 
 .js-comment-content.mb-0 {
-    font-family: Sahel !important;
+    font-family: Behdad ;
 }
 
 .comment-translatable {
-    font-family: Sahel !important;
+    font-family: Behdad ;
     font-size: large;
     font-weight: bold;
 }

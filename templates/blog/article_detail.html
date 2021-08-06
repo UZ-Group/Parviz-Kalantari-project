@@ -33,17 +33,16 @@
                         {% else %}
                             <i class="like-btn far fa-heart" data-toggle="tooltip" title="برای لایک کردن ورود کنید"><span>{{object.likes.count}}</span></i>
                         {% endif %}
-                        <span>تعداد بازدید :<span>{{object.hits.count}}</span></span>
+                        <span class="viewCounter">تعداد بازدید :<span>{{object.hits.count}}</span></span>
                     </div>
             </section>
             <section class="comments">
                 <div class="comments__header">
                     نظرات
-                    {% render_comments object request %}
-                    {% include_bootstrap %} 
                 </div>
                 <div class="comments__box">
-                    <!-- Comments App -->
+                    {% render_comments object request %}
+                    {% include_bootstrap %} 
                 </div>
             </section>
             <section class="recommended-articles-in-page">
