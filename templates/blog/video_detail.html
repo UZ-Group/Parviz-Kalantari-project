@@ -5,7 +5,13 @@
 {% block main %}
     <main>
         <div class="container">
-            <style>.h_iframe-aparat_embed_frame{position:relative;}.h_iframe-aparat_embed_frame .ratio{display:block;width:100%;height:auto;}.h_iframe-aparat_embed_frame iframe{position:absolute;top:0;left:0;width:100%;height:100%;}</style><div class="h_iframe-aparat_embed_frame"><span style="display: block;padding-top: 57%"></span><iframe src="{{object.link}}" title="{{object.title}}" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true"></iframe></div>
+            <div class="video-post">
+                <div class="h_iframe-aparat_embed_frame">
+                    <span class="videoPad"></span>
+                    <iframe src="{{object.link}}" title="{{object.title}}" allowFullScreen="true" webkitallowfullscreen="true" mozallowfullscreen="true">
+                    </iframe>
+                </div>
+            </div>
             <div class="video-detail">
                 <h3>{{object.title}}</h3>
                 <div class="new-post__date"><i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>{{object.jpublish}}</span></div>

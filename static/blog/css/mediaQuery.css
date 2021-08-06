@@ -1,0 +1,28 @@
+@import url(main-style.css);
+
+
+@media screen and (max-width: 576px) {
+    .nav-bar ul {
+        display: block;
+        position: fixed;
+        right: -160px;
+        top: 0;
+        bottom: 0;
+        background: var(--whi-color);
+        z-index: 2;
+        padding: 25px;
+        padding-top: 50px;
+        width: 160px;
+    }
+    .nav-bar ul li {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .nav-bar a {
+        /* color: var(--whi-color); */
+    }
+    .collpase-menu {
+        display: flex;
+        align-items: center;
+    }
+}

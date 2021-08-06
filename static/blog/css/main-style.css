@@ -81,7 +81,25 @@ background: var(--thi-color);
 .nav-bar ul {
     display: flex;
 }
-
+.collpase-menu {
+    display: none;
+    font-size: 30px;
+    color: var(--main-color);
+}
+.collpase-menu i {
+    height: fit-content;
+    cursor: pointer;
+}
+.blackBack {
+    position: fixed;
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    filter: blur(8px);
+    z-index: 1;
+    top: 0;
+    background: #ac9284b7;
+}
 /* Main Page Layout */
 
 .about-artist {
@@ -106,7 +124,7 @@ background: var(--thi-color);
 }
 .about-artist__description {
     text-align: right;
-    font-size: 14px;
+    font-size: 1rem;
     padding: 1.5svw;
     color: var(--main-color);
 }
@@ -143,6 +161,7 @@ background: var(--thi-color);
 @media only screen and (max-width: 767px) {
     .new-post__image img,.new-post__image {
       width: 100%;
+      height: 100%;
     }
     .new-post__image img {
         object-fit: cover;
@@ -440,6 +459,19 @@ footer {
         padding-right: 50px;
         border-radius: 10px !important;
     }
+    .new-post__image,
+    .new-post {
+        padding: 0;
+    }
+    .new-post__image img {
+        border-radius: 0px;
+        border-top-left-radius: 14px;
+        border-top-right-radius: 14px;
+    }
+    .new-post__detail,
+    .new-post__page {
+        padding: 3%;
+    }
 }
 .content {
       margin-top: 50px;
@@ -603,17 +635,13 @@ footer {
 /* Video Post */
 .video-post {
     margin: 4%;
-    height: 450px;
-}
-.video-post video {
-    width: 100%;
-    height: inherit;
+    /* height: 450px; */
 }
 .video-detail {
     text-align: right;
     color:  var(--main-color);
     min-height: 500px;
-    padding: 3%;
+    padding-right: 6%;
 }
 .video-detail h3 {
     margin-bottom: 1rem;
@@ -624,6 +652,27 @@ footer {
 .video-detail p {
     padding-right: 10px;
     padding-left: 10px;
+}
+/* video styles Extar  */
+
+.h_iframe-aparat_embed_frame {
+    position:relative;
+}
+.h_iframe-aparat_embed_frame .ratio {
+    display:block;
+    width:100%;
+    height:auto;
+}
+.h_iframe-aparat_embed_frame iframe {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+.videoPad {
+    display: block;
+    padding-top: 57%;
 }
 /*  Biography */
 .biography {
