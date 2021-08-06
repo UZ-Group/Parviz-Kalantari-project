@@ -49,9 +49,9 @@
             <section class="recommended-articles-in-page">
                 <div class="recommended-articles-in-page__header">مطالب پیشنهادی</div>
                 <div class="recommended-articles-in-page__box">
-                    <a href="article.html">مطلب پیشنهادی اول</a>
-                    <a href="article.html">مطلب پیشنهادی دوم</a>
-                    <a href="article.html">مطلب پیشنهادی سوم</a>
+                    {% for art in article %}
+                        <a href="{% url 'blog:article_detail' art.slug %}">{{art.title}}</a>
+                    {% endfor %}
                 </div>
             </section>
         </div>

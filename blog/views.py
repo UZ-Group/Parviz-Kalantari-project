@@ -1,6 +1,7 @@
 from django.http.response import Http404
 from django.views.generic import ListView, DetailView
 from .models import Article, Gallery, Video
+import random
 from site_settings.models import SiteSetting
 from django.shortcuts import get_object_or_404, redirect, render
 from account.mixins import AuthorAccessMixin
@@ -31,8 +32,13 @@ class ArticleDetail(DetailView):
         ip_address = self.request.user.ip_address
         if ip_address not in article.hits.all():
             article.hits.add(ip_address)
-
+            
         return article
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['article'] = random.sample(list(Article.objects.published()), 3)
+        return context
 
 def like(request, pk):
     user = request.user
