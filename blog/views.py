@@ -1,6 +1,6 @@
 from django.http.response import Http404
 from django.views.generic import ListView, DetailView
-from .models import Article, Gallery
+from .models import Article, Gallery, Video
 from site_settings.models import SiteSetting
 from django.shortcuts import get_object_or_404, redirect, render
 from account.mixins import AuthorAccessMixin
@@ -64,3 +64,15 @@ class GalleryDetail(DetailView):
         paint_id = self.kwargs.get('id')
         paint = get_object_or_404(Gallery.objects.all(), id=paint_id)
         return paint
+
+# videos
+class VideoList(ListView):
+    queryset = Video.objects.all()
+    paginate_by = 2
+
+
+class VideoDetail(DetailView):
+    def get_object(self):
+        pk = self.kwargs.get('pk')
+        video = get_object_or_404(Video, pk=pk)
+        return video

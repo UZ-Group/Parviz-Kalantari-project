@@ -6,6 +6,8 @@ from .views import (
     GalleryList,
     GalleryDetail,
     ArticlePreview,
+    VideoList,
+    VideoDetail,
     like
 )
 
@@ -20,4 +22,7 @@ urlpatterns = [
     path('gallery/', GalleryList.as_view(), name='gallery'),
     path('gallery/page/<int:page>', GalleryList.as_view(), name='gallery'),
     path('gallery/<int:id>', GalleryDetail.as_view(), name='gallery_detail'),
+    path('video/', VideoList.as_view(), name='video'),
+    path('video/page/<int:page>', VideoList.as_view(), name='video'),
+    path('video/<int:pk>', VideoDetail.as_view(), name='video_detail'),
 ]

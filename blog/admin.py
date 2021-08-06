@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Article, Gallery, IPAddress
+from .models import Article, Gallery, IPAddress, Video
 
 # Register your models here.
 def make_published(modeladmin, request, queryset):
@@ -50,7 +50,11 @@ class ArticleAdmin(admin.ModelAdmin):
 class GalleryAdmin(admin.ModelAdmin):
     list_display = ('__str__','image_tag')
 
+class VideoAdmin(admin.ModelAdmin):
+    list_display = ('__str__','image_tag', 'jpublish')
+
 
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(Video, VideoAdmin)
 admin.site.register(IPAddress)

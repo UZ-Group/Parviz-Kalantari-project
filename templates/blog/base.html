@@ -38,7 +38,7 @@
                 <li><a href="{% url 'setting:biography' %}">بیوگرافی</a></li>
                 <li><a href="{% url 'blog:gallery' %}">گالری آثار</a></li>
                 <li><a href="{% url 'blog:article_list' %}">آخرین مطالب</a></li>
-                <li><a href="videos.html">فیلم</a></li>
+                <li><a href="{% url 'blog:video' %}">فیلم</a></li>
             </ul>
         </nav>
     </header>
@@ -71,7 +71,7 @@
                 </div>
                 <div class="co--md-4">
                     <a href="{% url 'blog:article_list' %}">آخرین مطالب</a>
-                    <a href="videos.html">فیلم</a>
+                    <a href="{% url 'blog:video' %}">فیلم</a>
                 </div>
                 <div class="co--md-4">
                     <a href="{% url 'blog:gallery' %}">گالری آثار </a>

@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}ویدیوها{% endblock %}
+
+{% block main %}
+    <main>
+        <div class="container">
+            <div class="recommended-articles__header">
+                <span class="recommended-articles__text"><div>ویدیو ها</div></span>
+            </div>
+            <div class="recommended-articles row">
+                {% for video in object_list %}
+                    <div class="recommend-post col-md-5">
+                        <a href="{% url 'blog:video_detail' video.pk %}">
+                            <img class="recommend-post__image" src="{{video.image.url}}" alt="{{video.title}}">
+                            <h3 class="new-post__header">{{video.title}}</h3>
+                        </a>
+                        <p class="new-post__summery">
+                            {{video.description|safe}}
+                        </p>
+                        <div class="recommend-post__detail-box">
+                            <div class="new-post__date">
+                                <i class="far fa-calendar-alt"></i>تاریخ انتشار : <span>{{video.jpublish}}</span>
+                            </div>
+                            <span class="video-icon">
+                                <a href="{% url 'blog:video_detail' video.pk %}" data-toggle="tooltip" title="مشاهده ی ویدیو"><i class="fas fa-video"></i></a>
+                            </span>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if is_paginated %}
+                <div class="Slider">
+                    {% if page_obj.has_previous %}
+                        <a class="Slider__link signs-link" href="{% url 'blog:video' page_obj.previous_page_number %}">
+                            <i class="fas fa-caret-right"></i>
+                        </a>
+                    {% endif %}
+                    <div class="Slider__counter">{{ page_obj.number }}</div>
+                    {% if page_obj.has_next %}
+                        <a class="Slider__link signs-link" href="{% url 'blog:video' page_obj.next_page_number %}">
+                            <i class="fas fa-caret-left"></i>
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </main>
+{% endblock %}
