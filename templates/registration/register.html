@@ -15,21 +15,11 @@
                 </div>
             {% endif %}
             <h1 class="sign-page-header">به رنگ خاک</h1>
-            <div class="sign-page-icon"><i class="fas fa-door-open"></i></div>
+            <div class="sign-page-icon"><i class="fas fa-pen"></i></div>
+            <div class="sign-box">ثبت نام</div>
             <div class="sign-container">
-                <div class="sign-box">
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs navs-pan" role="tablist">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-edi" data-toggle="tab" href="#sign-in">ورود</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-edi active" data-toggle="tab" href="#sign-up">ثبت نام</a>
-                    </li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content tab-content-edis">
-                    <div id="sign-up" class="container tab-pane fade active"><br>
+                <div class=" tab-content-edis">
+                    <div id="sign-up" class="container"><br>
                         <div class="sign-in__inputs">
                             <form class="sign-in__form" action="" method="POST">{% csrf_token %}
                                 <div class="sign-in__fill">
@@ -82,6 +72,9 @@
                                 </div>
                                 <button type="submit">ثبت نام</button>
                             </form>
+                        </div>
+                        <div class="sign-before">
+                            <a href="">قبلا ثبت نام کرده اید؟</a>
                         </div>
                     </div>
                 </div>

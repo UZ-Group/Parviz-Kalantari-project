@@ -60,6 +60,9 @@ input:read-write {
     justify-content: center;
 }
 .sign-box {
+    text-align: center;
+    color: var(--main-color);
+    font-size: 30px;
     justify-content: center;
 }
 .navs-pan {
@@ -103,6 +106,10 @@ input:read-write {
     cursor: pointer;
     color: var(--main-color);
     font-size: 15px;
+}
+.sign-before {
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* modal */
