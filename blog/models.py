@@ -4,7 +4,9 @@ from account.models import User
 from django.utils import timezone
 from django.utils.html import format_html
 from .utils import unique_slug_generator
-from django.db.models.signals import pre_save
+from django.db.models.signals import pre_save, post_save
+from django.core.mail import EmailMessage
+from django.dispatch import receiver
 from extensions.utils import jalali_converter
 from ckeditor_uploader.fields import RichTextUploadingField
 from django.contrib.contenttypes.fields import GenericRelation
@@ -63,12 +65,21 @@ class Article(models.Model):
     image_tag.short_description = "عکس"
 
     objects = ArticleManager()
-     
+
+@receiver(pre_save, sender=Article)     
 def article_pre_save_receiver(sender, instance, *args, **kwargs):
+    users = User.objects.filter(receive_email=True)
     if not instance.slug:
         instance.slug = unique_slug_generator(instance)
-
-pre_save.connect(article_pre_save_receiver, sender=Article)
+    if instance.status == "p":
+        for user in users:
+            user_email = user.email
+            email = EmailMessage(
+            "مقاله جدید",
+            "مقاله‌ی جدیدی در وبسایت ما قرار داده شده",
+            to=[user_email]
+            )
+            email.send()
 
 
 class Gallery(models.Model):

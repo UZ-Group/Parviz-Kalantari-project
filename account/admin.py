@@ -9,11 +9,12 @@ UserAdmin.fieldsets[2][1]['fields'] = (
                                         'is_active', 
                                         'is_staff', 
                                         'is_superuser', 
-                                        'is_author', 
+                                        'is_author',
+                                        'receive_email', 
                                         'groups', 
                                         'user_permissions'
                                         )
 
-UserAdmin.list_display += ('is_author','is_active')
+UserAdmin.list_display += ('is_author','is_active', 'receive_email')
 
 admin.site.register(User, UserAdmin)

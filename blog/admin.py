@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import Article, Gallery, IPAddress, Video
+from account.models import User
 
 # Register your models here.
 def make_published(modeladmin, request, queryset):
@@ -40,6 +41,11 @@ def make_back(modeladmin, request, queryset):
 
 
 class ArticleAdmin(admin.ModelAdmin):
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "author":
+            kwargs["queryset"] = User.objects.filter(is_author=True)
+        return super().formfield_for_foreignkey(db_field, request, **kwargs)
+
     list_display = ('title', 'slug', 'image_tag', 'author', 'jpublish','status')
     list_filter = ('status', 'publish', 'author')
     search_fields = ('title', 'description')

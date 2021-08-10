@@ -1,5 +1,5 @@
 from django.db import models
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import HttpResponse, render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import User
@@ -71,7 +71,7 @@ class Profile(LoginRequiredMixin, UpdateView):
 class UserPanel(LoginRequiredMixin, UpdateView):
     model = User
     template_name = 'registration/user_panel.html'
-    fields = ['username', 'email']
+    fields = ['username', 'email', 'receive_email']
     success_url = reverse_lazy('account:user-panel')
 
     def get_object(self):
@@ -108,7 +108,7 @@ class Register(CreateView):
             mail_subject, message, to=[to_email]
         )
         email.send()
-        return HttpResponse('لینک فعال سازی به ایمیل شما ارسال شد. <a href="/login">ورود</a>')    
+        return render(self.request, 'registration/msg_active_register.html')    
 
 
 def activate(request, uidb64, token):
@@ -120,6 +120,6 @@ def activate(request, uidb64, token):
     if user is not None and account_activation_token.check_token(user, token):
         user.is_active = True
         user.save()
-        return HttpResponse('اکانت شما با موفقیت فعال شد. برای ورود <a href="/login"> کلیک </a> کنید.')
+        return render(request, 'registration/msg_active_register_done.html')
     else:
-        return HttpResponse('لینک فعال سازی منقضی شده است. <a href="/register"> دوباره امتحان کنید </a>')
+        return render(request, 'registration/msg_active_register_fail.html')
