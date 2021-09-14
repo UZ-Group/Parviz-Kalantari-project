@@ -8,7 +8,7 @@
             <div class="about-artist__image  col-md-2"><img src="{{setting.image.url}}"
                     alt="استاد پرویز کلانتری"></div>
             <div class="about-artist__description  col-md-10">
-               {{setting.bio}}
+               {{setting.bio|safe|truncatewords:60}} <a href="{% url 'setting:biography' %}">ادامه</a>
             </div>
         </div>
         <div class="posts">

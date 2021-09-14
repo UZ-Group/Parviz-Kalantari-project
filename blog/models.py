@@ -84,14 +84,14 @@ def article_pre_save_receiver(sender, instance, *args, **kwargs):
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/gallery', verbose_name='نقاشی')
-    description = models.TextField(verbose_name='درباره نقاشی')
+    description = models.TextField(default=None, verbose_name='درباره نقاشی')
 
     class Meta:
         verbose_name = 'نقاشی'
         verbose_name_plural = 'گالری نقاشی ها'
     
     def image_tag(self):
-        return format_html("<img width=250 height=150 style='border-radius: 10px;' src='{}'>".format(self.image.url))
+        return format_html("<img width=250 height=150 style='border-radius: 10px; object-fit: cover;' src='{}'>".format(self.image.url))
     image_tag.short_description = "عکس"
 
 
