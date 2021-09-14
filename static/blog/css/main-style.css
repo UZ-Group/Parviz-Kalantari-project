@@ -28,6 +28,7 @@ a:hover {
     color: var(--thi-color);
     text-decoration: none;
 }
+
 /* scroll bar */
     /* width */
 ::-webkit-scrollbar {
@@ -130,6 +131,10 @@ background: var(--thi-color);
     font-size: 1rem;
     padding: 1.5svw;
     color: var(--main-color);
+}
+.about-artist__description a {
+    text-decoration: underline;
+    font-style: italic;
 }
 /* Last posts */
 .posts__header {
@@ -683,6 +688,13 @@ footer {
     padding: 3%;
     padding-top: 0%;
     white-space: break-spaces;
+}
+.biography__box img {
+    width: 100% !important;
+    height: 100% !important;
+}
+.biography__box p {
+    margin-bottom: 0%;
 }
 /*  Contact Us */
 .contactUs {
