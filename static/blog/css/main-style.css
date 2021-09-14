@@ -150,6 +150,7 @@ background: var(--thi-color);
     transition: 0.5s;
     margin: 1.5%;
     margin-bottom: 3%;
+    transition: 0.5s ease-in-out !important;
 }
 .new-post:hover {
     box-shadow: 0px 0px 35px var(--shad-color);
@@ -275,8 +276,9 @@ footer {
 }
 .user-box > a {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     color: var(--whi-color);
+    font-size: 1.4rem;
 }
 .fa-sign-in-alt {
     margin-left: 5px;
@@ -370,6 +372,7 @@ footer {
     border-radius: 10px;
     padding: 0%;
     margin: 2%;
+    overflow: hidden;
 }
 .recommend-post:hover {
     box-shadow: 0px 0px 35px var(--shad-color);
@@ -378,8 +381,6 @@ footer {
     width: 100%;
     aspect-ratio: 2/1;
     object-fit: cover;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
 }
 .recommend-post__image ~ h3 {
     margin-top: 3%;
@@ -467,10 +468,20 @@ footer {
     text-align: right;
 }
 .content__article {
+    display: flex;
+    flex-direction: column;
     color: var(--main-color);
+    color: #4b3a31;
     text-align: right;
     line-height: 30px;
     padding: 0px 30px;
+    align-items: center;
+}
+.content__article img {
+    text-align: center;
+    border-radius: 5px;
+    max-width: 100% !important;
+    height: 100% !important;
 }
 .content__btns-box i {
     font-size: 20px;
@@ -517,12 +528,10 @@ footer {
     color: var(--main-color);
     font-size: 40px;
     text-align: right;
-    padding-right: 6%;
+    padding-right: 2%;
     margin-bottom: 30px;
 }
 .comments__box {
-    /* background-color: #E0B586; */
-    height: 600px;
     margin-bottom: 40px;
     padding-bottom: 30px;
     border-bottom: 1px solid var(--sec-color);
@@ -531,7 +540,7 @@ footer {
     text-align: right;
 }
 .recommended-articles-in-page {
-    margin-bottom: 40px;
+    margin-bottom: 5rem;
 }
 .recommended-articles-in-page__box a {
     display: block;
@@ -539,6 +548,9 @@ footer {
     text-align: right;
     margin-right: 5px;
     margin-bottom: 7px;
+}
+.recommended-articles-in-page__box li {
+    list-style-type: disc;
 }
   /* ------------------ Gallery page --------------------- */
 

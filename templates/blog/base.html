@@ -20,6 +20,7 @@
     <meta property="og:type" content="Art Gallery" />
     <title>{% block title %}استاد پرویز کلانتری{% endblock %}</title>
     <!-- HeaderReferences -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/png" href="{% static 'blog/images/icon.png' %}">
     <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
@@ -94,6 +95,8 @@
 <script src="{% static 'blog/js/jquery-3.5.1.slim.min.js' %}"></script>
 <script src="{% static 'blog/js/bootstrap.bundle.js' %}"></script>
 <script src="{% static 'blog/js/script.js' %}"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 {% block foot %}{% endblock %}
 
 </html>

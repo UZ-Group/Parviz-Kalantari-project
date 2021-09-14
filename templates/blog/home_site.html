@@ -14,7 +14,7 @@
         <div class="posts">
             <div class="posts__header">آخرین مطالب</div>
             {% for article in articles %}
-                <article class="new-post row">
+                <article class="new-post row aos-init" data-aos="fade-up-right" data-aos-once="true">
                     <div class="col-md-2 new-post__image"><img src="{{article.image.url}}" alt="{{article.title}}"></div>
                     <div class="col-md-9 new-post__detail">
                         <div class="new-post__header"><a href="{% url 'blog:article_detail' article.slug %}">{{article.title}}</a></div>
@@ -38,18 +38,18 @@
     </div>
     <div class="paints">
         <div class="paints__row row">
-            <div class="col-3"><img src="{% static 'blog/images/painting-1.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-2.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-3.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-5.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-6.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-7.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-8.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-9.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-10.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-11.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-12.jpg' %}" alt="painting"></div>
-            <div class="col-3"><img src="{% static 'blog/images/painting-4.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-1.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-2.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-3.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-5.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-6.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-7.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-8.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-9.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-10.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-11.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-up" data-aos-once="true"><img src="{% static 'blog/images/painting-12.jpg' %}" alt="painting"></div>
+            <div class="col-3 aos-init" data-aos="fade-down" data-aos-once="true"><img src="{% static 'blog/images/painting-4.jpg' %}" alt="painting"></div>
         </div>
     </div>
 </main>
