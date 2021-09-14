@@ -84,7 +84,7 @@ def article_pre_save_receiver(sender, instance, *args, **kwargs):
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/gallery', verbose_name='نقاشی')
-    description = models.TextField(default=None, verbose_name='درباره نقاشی')
+    description = models.TextField(default=None, blank=True, verbose_name='درباره نقاشی')
 
     class Meta:
         verbose_name = 'نقاشی'
