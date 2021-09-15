@@ -1,3 +1,5 @@
+<meta name="google-site-verification" content="EkRZyz5ZAVYGNFk6e6I6ueNqPaOu-aVRj6yx7Fk-EOw" />
+
 {% extends 'blog/base.html' %}
 {% load static %}
 
@@ -14,7 +16,7 @@
         <div class="posts">
             <div class="posts__header">آخرین مطالب</div>
             {% for article in articles %}
-                <article class="new-post row aos-init" data-aos="fade-up-right" data-aos-once="true">
+                <article class="new-post row aos-init" data-aos="fade-up" data-aos-once="true">
                     <div class="col-md-2 new-post__image"><img src="{{article.image.url}}" alt="{{article.title}}"></div>
                     <div class="col-md-9 new-post__detail">
                         <div class="new-post__header"><a href="{% url 'blog:article_detail' article.slug %}">{{article.title}}</a></div>
