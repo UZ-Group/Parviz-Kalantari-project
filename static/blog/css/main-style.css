@@ -274,9 +274,11 @@ h3.new-post__header {
 }
 .paints__row div img {
     width: 100%;
+    filter: saturate(0.3);
 }
-.paints__row div :hover {
-    opacity: 70%;
+.paints__row div:hover img {
+    /* opacity: 70% ; */
+    filter: saturate(1);
 }
 /* Footer */
 footer {
