@@ -73,14 +73,16 @@ def article_pre_save_receiver(sender, instance, *args, **kwargs):
         instance.slug = unique_slug_generator(instance)
     if instance.status == "p":
         for user in users:
-            user_email = user.email
-            email = EmailMessage(
-            "مقاله جدید",
-            "مقاله‌ی جدیدی در وبسایت ما قرار داده شده",
-            to=[user_email]
-            )
-            email.send()
-
+            try:
+                user_email = user.email
+                email = EmailMessage(
+                "مقاله جدید",
+                "مقاله‌ی جدیدی در وبسایت ما قرار داده شده",
+                to=[user_email]
+                )
+                email.send()
+            except:
+                continue
 
 class Gallery(models.Model):
     image = models.ImageField(upload_to='images/gallery', verbose_name='نقاشی')
